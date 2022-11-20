@@ -15,6 +15,12 @@ public class ShadowManager : MonoBehaviour
     private Quaternion _targetRotation;
 
     [SerializeField]
+    private GameObject _second;
+
+    [SerializeField]
+    private Quaternion _secondRotation;
+
+    [SerializeField]
     private Button _backButton;
 
     [SerializeField]
@@ -48,13 +54,27 @@ public class ShadowManager : MonoBehaviour
     {
         if (Quaternion.Angle(_source.transform.rotation, _targetRotation) <= Settings.Tolerance)
         {
-            _isTicking = false;
-            _victory.gameObject.SetActive(true);
-            if (Settings.GameMode == GameMode.Campaign)
+            if (_second == null)
             {
-                PlayerPrefs.SetInt((_taskNumber + 1).ToString(), 1);
-                PlayerPrefs.Save();
+                Victory();
+                return;
             }
+
+            if (Quaternion.Angle(_second.transform.rotation, _secondRotation) <= Settings.Tolerance)
+            {
+                Victory();
+            }
+        }
+    }
+
+    private void Victory()
+    {
+        _isTicking = false;
+        _victory.gameObject.SetActive(true);
+        if (Settings.GameMode == GameMode.Campaign)
+        {
+            PlayerPrefs.SetInt((_taskNumber + 1).ToString(), 1);
+            PlayerPrefs.Save();
         }
     }
 

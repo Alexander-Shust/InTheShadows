@@ -7,6 +7,9 @@ public class ObjectMover : MonoBehaviour
 
     [SerializeField]
     private bool _allowXrotation = true;
+
+    [SerializeField]
+    private bool _allowMovement = false;
     
     private Vector3 _mousePosition = Vector3.zero;
     
