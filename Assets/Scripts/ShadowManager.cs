@@ -62,7 +62,10 @@ public class ShadowManager : MonoBehaviour
 
             if (Quaternion.Angle(_second.transform.rotation, _secondRotation) <= Settings.Tolerance)
             {
-                Victory();
+                if (_second.transform.position.x <= _source.transform.position.x)
+                {
+                    Victory();
+                }
             }
         }
     }

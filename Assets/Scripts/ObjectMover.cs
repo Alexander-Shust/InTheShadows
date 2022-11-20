@@ -16,7 +16,7 @@ public class ObjectMover : MonoBehaviour
     private void OnMouseDrag()
     {
         var currentMousePosition = Input.mousePosition;
-        if (_allowYrotation && !Input.GetMouseButton(1))
+        if (_allowYrotation && !Input.GetMouseButton(1) && !Input.GetKey(KeyCode.LeftControl))
         {
             if (_mousePosition.x < currentMousePosition.x)
             {
@@ -28,7 +28,7 @@ public class ObjectMover : MonoBehaviour
             }
         }
 
-        if (_allowXrotation && Input.GetMouseButton(1))
+        if (_allowXrotation && Input.GetMouseButton(1) && !Input.GetKey(KeyCode.LeftControl))
         {
             if (_mousePosition.y < currentMousePosition.y)
             {
@@ -37,6 +37,18 @@ public class ObjectMover : MonoBehaviour
             else if (_mousePosition.y > currentMousePosition.y)
             {
                 transform.RotateAround(transform.position, Vector3.right, Settings.RotationStep);
+            }
+        }
+
+        if (_allowMovement && Input.GetKey(KeyCode.LeftControl) && !Input.GetMouseButton(1))
+        {
+            if (_mousePosition.x < currentMousePosition.x)
+            {
+                transform.Translate(Vector3.right * Settings.RotationStep, Space.World);
+            }
+            else if (_mousePosition.x > currentMousePosition.x)
+            {
+                transform.Translate(Vector3.left *Settings.RotationStep, Space.World);
             }
         }
 
