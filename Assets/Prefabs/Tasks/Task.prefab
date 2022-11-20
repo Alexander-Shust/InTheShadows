@@ -279,6 +279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _taskNumber: 0
   _startButton: {fileID: 3904871739817856414}
+  _lock: {fileID: 6289889045523124168}
+  _unlock: {fileID: 6289889044206171019}
 --- !u!1 &6289889045523124170
 GameObject:
   m_ObjectHideFlags: 0

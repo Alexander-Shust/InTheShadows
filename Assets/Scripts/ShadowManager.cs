@@ -1,11 +1,13 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ShadowManager : MonoBehaviour
 {
+    [SerializeField]
+    private int _taskNumber;
+    
     [SerializeField]
     private Button _backButton;
 
@@ -42,6 +44,11 @@ public class ShadowManager : MonoBehaviour
         {
             _isTicking = false;
             _victory.gameObject.SetActive(true);
+            if (Settings.GameMode == GameMode.Campaign)
+            {
+                PlayerPrefs.SetInt((_taskNumber + 1).ToString(), 1);
+                PlayerPrefs.Save();
+            }
         }
     }
 
