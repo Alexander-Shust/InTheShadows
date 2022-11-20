@@ -7,7 +7,13 @@ public class ShadowManager : MonoBehaviour
 {
     [SerializeField]
     private int _taskNumber;
-    
+
+    [SerializeField]
+    private GameObject _source;
+
+    [SerializeField]
+    private Quaternion _targetRotation;
+
     [SerializeField]
     private Button _backButton;
 
@@ -40,7 +46,7 @@ public class ShadowManager : MonoBehaviour
 
     private void CheckVictory()
     {
-        if (_time >= 5.0f)
+        if (Quaternion.Angle(_source.transform.rotation, _targetRotation) <= Settings.Tolerance)
         {
             _isTicking = false;
             _victory.gameObject.SetActive(true);
