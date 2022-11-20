@@ -13,7 +13,7 @@ public class ObjectMover : MonoBehaviour
     private void OnMouseDrag()
     {
         var currentMousePosition = Input.mousePosition;
-        if (_allowYrotation)
+        if (_allowYrotation && !Input.GetMouseButton(1))
         {
             if (_mousePosition.x < currentMousePosition.x)
             {
@@ -25,15 +25,15 @@ public class ObjectMover : MonoBehaviour
             }
         }
 
-        if (_allowXrotation)
+        if (_allowXrotation && Input.GetMouseButton(1))
         {
             if (_mousePosition.y < currentMousePosition.y)
             {
-                transform.RotateAround(transform.position, Vector3.forward, -Settings.RotationStep);
+                transform.RotateAround(transform.position, Vector3.right, -Settings.RotationStep);
             }
             else if (_mousePosition.y > currentMousePosition.y)
             {
-                transform.RotateAround(transform.position, Vector3.forward, Settings.RotationStep);
+                transform.RotateAround(transform.position, Vector3.right, Settings.RotationStep);
             }
         }
 

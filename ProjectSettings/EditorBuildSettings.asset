@@ -16,5 +16,11 @@ EditorBuildSettings:
     guid: 3d490203cc20fdf4fac1455156b1d281
   - enabled: 1
     path: Assets/Scenes/Task1.unity
+    guid: f8184ebb921ec734e9cd831dd5c262ed
+  - enabled: 1
+    path: Assets/Scenes/Task2.unity
     guid: 8f318ce059622b94f9ac5d325beef7a1
+  - enabled: 1
+    path: Assets/Scenes/Task3.unity
+    guid: 3c91198846a9cfa40a24d765ca9aca78
   m_configObjects: {}
