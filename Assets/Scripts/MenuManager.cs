@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void StartCampaign()
     {
-        
+        Settings.GameMode = GameMode.Campaign;
+        SceneManager.LoadScene("Campaign");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartFreeChoice()
     {
-        
+        Settings.GameMode = GameMode.Test;
+        SceneManager.LoadScene("Test");
     }
 }
