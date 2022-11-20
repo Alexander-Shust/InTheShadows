@@ -44,11 +44,11 @@ public class ObjectMover : MonoBehaviour
         {
             if (_mousePosition.x < currentMousePosition.x)
             {
-                transform.Translate(Vector3.right * Settings.RotationStep, Space.World);
+                transform.Translate(Vector3.right * Settings.MovementStep, Space.World);
             }
             else if (_mousePosition.x > currentMousePosition.x)
             {
-                transform.Translate(Vector3.left *Settings.RotationStep, Space.World);
+                transform.Translate(Vector3.left *Settings.MovementStep, Space.World);
             }
         }
 
